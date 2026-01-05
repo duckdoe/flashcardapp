@@ -4,6 +4,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: var(--gray-900)
 }
 
 button {
@@ -17,7 +18,6 @@ button {
 input {
   font-family: var(--font-primary);
   font-size: var(--fs-sm);
-  font-weight: var(--fw-regular);
 }
 
 ._main {
@@ -72,6 +72,7 @@ nav {
   border: none;
   outline: none;
   height: 100%;
+  color: var(--gray-900);
 }
 
 ._search_group input:focus {
@@ -89,6 +90,29 @@ nav {
 
 ._btn_group ._muted {
   margin-right: 10px
+}
+
+._muted {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--gray-100);
+}
+
+._muted:hover {
+  background-color: var(--gray-300);
+}
+
+._primary {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  color: var(--white);
+  background-color: var(--blue-primary);
+}
+
+._primary:hover {
+  background-color: var(--blue-primary-dark);
 }
 
 main {
@@ -131,8 +155,50 @@ main {
   margin-right: 4px;
 }
 
+._desc {
+  max-height: 70px;
+}
+
 ._card_funcs {
+  position: absolute;
+  width: max-content;
+  margin-top: 10px;
+  background-color: var(--white);
+  box-shadow: 0px 0px 8px rgb(0, 0, 0, .15);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+._card_funcs ul {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+
+._card_funcs ul li {
+  cursor: pointer;
+  transition: .4s;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+._card_funcs ul li:hover {
+  background-color: var(--gray-100);
+}
+
+/* ._hidden {
   display: none;
+} */
+
+._option_btn i {
+  padding: 8px;
+  border-radius: 100%;
+  transition: .2s;
+  cursor: pointer;
+}
+
+._option_btn i:hover {
+  background-color: var(--gray-100);
 }
 
 ._font_muted {
@@ -140,27 +206,20 @@ main {
   font-style: italic;
 }
 
-._muted {
-  padding: 8px;
-  border-radius: 5px;
-  border: none;
-  background-color: var(--gray-100);
+._card_outline {
+  position: relative;
 }
 
-._muted:hover {
-  background-color: var(--gray-300);
-}
-
-._primary {
-  padding: 8px;
-  border-radius: 5px;
-  border: none;
-  color: var(--white);
-  background-color: var(--blue-primary);
-}
-
-._primary:hover {
-  background-color: var(--blue-primary-dark);
+._card_outline::before {
+  content: '';
+  position: absolute;
+  height: 6px;
+  width: calc(100% + 2px);
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: var(--green-primary);
+  bottom: -1px;
+  left: -1px;
 }
 
 footer {
@@ -172,4 +231,10 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+._socials ul li {
+  display: inline-block;
+  font-size: var(--fs-lg);
+  padding-left: 10px;
 }
