@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+  /* Neutrals / Grays */
+  --gray-100: #F2F2F2;
+  --gray-200: #E2E2E2;
+  --gray-300: #E6E6E6;
+  --gray-400: #B3B3B3;
+  --gray-500: #707070;
+  --gray-600: #696C70;
+  --gray-700: #666666;
+  --gray-800: #606266;
+  --gray-900: #333333;
+
+  /* Blacks & Whites */
+  --black-100: #1A1A1A;
+  --black-900: #000000;
+  --white: #FFFFFF;
+
+  /* Accent / Brand Colors */
+  --blue-primary: #5A72EC;
+  --green-primary: #3EAD81;
+  --orange-accent: #EF5D38;
+
+  /* Font Family */
+  --font-primary: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Font Sizes (rem for responsiveness) */
+  --fs-xs: 0.75rem;
+  /* 12px */
+  --fs-sm: 0.875rem;
+  /* 14px */
+  --fs-md: 1rem;
+  /* 16px */
+  --fs-lg: 1.25rem;
+  /* 20px */
+  --fs-xl: 2rem;
+  /* 32px */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--fs-sm);
+}
