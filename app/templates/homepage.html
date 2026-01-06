@@ -19,6 +19,7 @@
   </head>
   <body>
     <div class="_main">
+      <div class="_backdrop"></div>
       <div class="_grid">
         <div class="_top">
           <header>
@@ -32,12 +33,18 @@
                     <span class="_search_btn"
                       ><i class="ri-search-line"></i
                     ></span>
-                    <input type="text" placeholder="Search cards" />
+                    <input
+                      type="text"
+                      placeholder="Search cards"
+                      class="_search_input _js_input"
+                    />
                   </div>
 
                   <div class="_btn_group">
-                    <button class="_muted _js_group">Create Group</button>
-                    <button class="_primary _js_card">Create Flashcard</button>
+                    <button class="_primary _js_card">
+                      <span class="_btn_text"> Create Flashcard </span>
+                      <i class="ri-add-box-fill _btn_icon"></i>
+                    </button>
                   </div>
                 </div>
               </nav>
