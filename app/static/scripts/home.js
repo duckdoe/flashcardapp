@@ -24,7 +24,7 @@ function render_html() {
   cards.forEach(card => {
     const created_at = new Date(card.created_at);
 
-    html += `<div class="_card _card_outline _card_outline_${card.color}">
+    html += `<div class="_card _card_outline _card_outline_${card.color}" data-id="${card.id}">
                 <div class="_card_desc">
                   <div class="_card_info">
                     <h3>${card.title}</h3>
@@ -42,9 +42,9 @@ function render_html() {
                   </div>
                 </div>
                 <div class="_card_options">
-                  <div class="_option_btn">
+                  <button class="_option_btn">
                     <i class="ri-more-2-fill"></i>
-                  </div>
+                  </button>
                   <div class="_card_funcs _hidden">
                     <ul>
                       <li class="_edit_func">
@@ -78,13 +78,13 @@ function format_time(date) {
   }
 
   switch (true) {
-    case seconds > 60:
+    case seconds > 60 && seconds < 3600:
       return `${Math.floor(seconds / 60)} mins`
-    case seconds > 3600:
+    case seconds > 3600 && seconds < 86400:
       return `${Math.floor(seconds / 3600)} hrs`
-    case seconds > 86400:
+    case seconds > 86400 && seconds < 2592000:
       return `${Math.floor(seconds / 86400)} days`
-    case seconds > 2592000:
+    case seconds > 2592000 < 31536000:
       return `${Math.floor(seconds / 2592000)} days`
     case seconds > 31536000:
       return `${Math.floor(seconds / 31536000)} days`
@@ -99,6 +99,8 @@ let search_is_focused = false;
 
 search_input.addEventListener('focus', () => {
   search_is_focused = true;
+  const search_result = document.querySelector('._search_results');
+  search_result.classList.add('_search_results_active');
 
   const min_screen_size = 540;
   const window_size = window.innerWidth;
@@ -119,6 +121,9 @@ search_input.addEventListener('blur', () => {
   const min_screen_size = 540;
   const window_size = window.innerWidth;
 
+  const search_result = document.querySelector('._search_results');
+  search_result.classList.remove('_search_results_active');
+
   if (window_size <= min_screen_size && !search_is_focused) {
     const backdrop = document.querySelector('._backdrop');
     backdrop.classList.remove('_open');
@@ -131,3 +136,47 @@ search_input.addEventListener('blur', () => {
 search_btn.addEventListener('click', (e) => {
   search_input.focus();
 })
+
+
+let search_query = '';
+
+search_input.addEventListener('input', (e) => {
+  const search_result = document.querySelector('._search_results');
+
+  search_query = e.target.value;
+  search_query = search_query.trim();
+  search_result.innerHTML = search_query != '' ? search_query : 'No results';
+})
+
+search_input.addEventListener('focus', () => {
+  const search_result = document.querySelector('._search_results');
+  search_result.classList.add('_search_results_active');
+});
+
+search_input.addEventListener('blur', () => {
+  const search_result = document.querySelector('._search_results');
+  search_result.classList.remove('_search_results_active');
+})
+
+const card_option_btns = document.querySelectorAll('._option_btn');
+
+card_option_btns.forEach(card_option_btn => {
+  card_option_btn.addEventListener('focus', () => {
+    const card_funcs = card_option_btn.nextElementSibling;
+    card_funcs.classList.remove('_hidden');
+  })
+
+  card_option_btn.addEventListener('blur', () => {
+    const card_funcs = card_option_btn.nextElementSibling;
+    card_funcs.classList.add('_hidden');
+  })
+})
+
+function get_card_id(element) {
+  if (!element.classList.contains('_card')) {
+    throw TypeError(`Expected a card element got ${element}`);
+  }
+
+  const data = element.dataset;
+  return data.id;
+}

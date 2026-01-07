@@ -66,6 +66,7 @@ nav {
   border-color: var(--gray-900);
   border-style: solid;
   border-width: 1px;
+  background-color: var(--white);
 }
 
 ._search_group input {
@@ -91,6 +92,30 @@ nav {
 
 ._search_btn {
   cursor: pointer;
+}
+
+._result_container {
+  position: relative;
+  width: 100%;
+}
+
+._search_results {
+  position: absolute;
+  z-index: -1;
+  padding: 10px;
+  margin: 4px;
+  background-color: var(--white);
+  left: -11.64px;
+  width: calc(100% + 16px);
+  box-shadow: 0px 2px 5px rgb(0, 0, 0, .1);
+  border-radius: 4px;
+  top: -50%;
+  transition: .4s;
+  display: none;
+}
+
+._search_results_active {
+  display: block;
 }
 
 ._btn_group ._muted {
@@ -177,7 +202,9 @@ main {
   box-shadow: 0px 0px 8px rgb(0, 0, 0, .15);
   border-radius: 4px;
   padding: 2px;
-  transition: .07s;
+  transition: .1s;
+  z-index: 2;
+  right: 10px;
 }
 
 ._card_funcs ul {
@@ -199,6 +226,11 @@ main {
 
 ._hidden {
   scale: 0;
+}
+
+._option_btn {
+  background-color: transparent;
+  border: none;
 }
 
 ._option_btn i {
@@ -304,10 +336,10 @@ footer {
     width: calc(100% - 20px);
     padding: 8px;
     border-radius: 4px;
-    border: 1px solid !important;
-    border-color: var(--gray-900);
-    box-shadow: 0px 4px 8px rgb(0, 0, 0, .15);
-    z-index: 10;
+    /* border: 1px solid !important; */
+    /* border-color: var(--gray-900); */
+    /* box-shadow: 0px 4px 8px rgb(0, 0, 0, .15); */
+    z-index: 3;
     background-color: var(--white) !important;
     transition: .4s;
   }
@@ -337,6 +369,25 @@ footer {
 
   ._open {
     display: block;
+  }
+
+  ._result_container {
+    position: static;
+  }
+
+  ._search_results {
+    z-index: 2;
+    width: calc(100% - 20px);
+    transform: translate(-50%, -50%);
+    left: calc(50% - 4px);
+    margin-top: 15px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    top: -50%;
+  }
+
+  ._search_results_active {
+    top: 45px;
   }
 }
 
