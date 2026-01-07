@@ -301,6 +301,28 @@ footer {
   display: none;
 }
 
+._full {
+  display: block;
+}
+
+._delete_icon {
+  color: tomato;
+}
+
+._delete_func button {
+  border: none;
+  background-color: transparent;
+}
+
+._text_center {
+  width: 100%;
+  text-align: center;
+}
+
+._grid_1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
 @media (width <=952px) {
   ._card_grid {
     grid-template-columns: repeat(3, 1fr);
