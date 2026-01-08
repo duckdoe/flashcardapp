@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='styles/base.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='styles/edit.css')}}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Flashcard - Edit</title>
+  </head>
+  <body>
+    <div class="_main">
+      <div class="_card_section">
+        <div class="_card_section_header">
+          <div class="_card_title">
+            <input type="text" class="_title_input" value="Mathematics" />
+            <span class="_changed"></span>
+          </div>
+          <div class="_card_more">
+            <i class="ri-more-line"></i>
+            <div class="_card_funcs">
+              <ul>
+                <li class="_save_changes">
+                  <i class="ri-save-line"></i>
+                  Save Changes
+                </li>
+                <li class="_chage_color">
+                  <i class="ri-color-filter-line"></i>
+                  Change Color
+                </li>
+                <li class="_delete_cards">
+                  <i class="ri-delete-bin-line"></i>
+                  Delete Flascard
+                </li>
+                <li class="_go_back">
+                  <i class="ri-arrow-left-long-line"></i>
+                  Go Home
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="_card">
+          <div class="_card_header">
+            <div class="_card_status">
+              <span>Question</span>
+              <span>Answer</span>
+            </div>
+            <button>
+              <i class="ri-edit-2-line"></i>
+              Edit Text
+            </button>
+          </div>
+          <div class="_full_height">
+            <p class="_question">What is the haemogoblin?</p>
+            <div class="_answer">
+              Haemogoblin is the one responsible for the red color in blood.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
