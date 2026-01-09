@@ -29,19 +29,23 @@
             <i class="ri-more-line"></i>
             <div class="_card_funcs">
               <ul>
-                <li class="_save_changes">
+                <li class="_add_func">
+                  <i class="ri-add-box-line"></i>
+                  Add Card
+                </li>
+                <li class="_save_func">
                   <i class="ri-save-line"></i>
                   Save Changes
                 </li>
-                <li class="_chage_color">
+                <li class="_chage_func">
                   <i class="ri-color-filter-line"></i>
                   Change Color
                 </li>
-                <li class="_delete_cards">
+                <li class="color_func">
                   <i class="ri-delete-bin-line"></i>
                   Delete Flascard
                 </li>
-                <li class="_go_back">
+                <li class="_back_func">
                   <i class="ri-arrow-left-long-line"></i>
                   Go Home
                 </li>
@@ -49,25 +53,36 @@
             </div>
           </div>
         </div>
-        <div class="_card">
-          <div class="_card_header">
-            <div class="_card_status">
-              <span>Question</span>
-              <span>Answer</span>
-            </div>
-            <button>
-              <i class="ri-edit-2-line"></i>
-              Edit Text
-            </button>
+        <div class="_card_container">
+          <div class="_nav_btn">
+            <i class="ri-arrow-left-long-line"></i>
           </div>
-          <div class="_full_height">
-            <p class="_question">What is the haemogoblin?</p>
-            <div class="_answer">
-              Haemogoblin is the one responsible for the red color in blood.
+          <div class="_cards">
+            <div class="_card">
+              <div class="_card_header">
+                <div class="_card_status">
+                  <span>Question</span>
+                  <span>Answer</span>
+                </div>
+                <button class="_edit_btn">
+                  <i class="ri-edit-2-line"></i>
+                  Edit Text
+                </button>
+              </div>
+              <div class="_full_height">
+                <div class="_text">
+                  <p class="_card_text">What is the haemogoblin?</p>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="_nav_btn_right">
+            <i class="ri-arrow-right-long-line"></i>
           </div>
         </div>
       </div>
     </div>
+
+    <script src="{{url_for('static', filename='scripts/edit.js')}}"></script>
   </body>
 </html>

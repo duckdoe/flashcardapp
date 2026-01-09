@@ -1,0 +1,141 @@
+ul {
+  list-style-type: none;
+}
+
+._main {
+  max-width: 1200px;
+  height: 100vh;
+  margin-inline: 10px;
+  display: grid;
+  place-content: center;
+}
+
+._card_section {
+  width: 595px;
+}
+
+._card_section_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 480px;
+  margin-inline: auto;
+}
+
+._title_input {
+  border: none;
+  border-bottom: 1px solid;
+  border-bottom-color: var(--gray-900);
+  field-sizing: content;
+  display: block;
+  max-width: 120px;
+  padding: 4px;
+}
+
+._title_input:focus {
+  outline: none;
+}
+
+._card_funcs {
+  position: absolute;
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 8px rgb(0, 0, 0, .15);
+  background-color: var(--white);
+}
+
+._card_funcs ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+._card_funcs ul li {
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: .2s;
+}
+
+._card_funcs ul li:hover {
+  background-color: var(--gray-200);
+}
+
+._card_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+._cards {
+  overflow: scroll;
+  width: 500px;
+  padding: 10px;
+}
+
+._card {
+  background-color: var(--green-primary);
+  padding: 10px;
+  border-radius: 4px;
+  height: 250px;
+  display: grid;
+  grid-template-rows: 20px 210px;
+}
+
+._card_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: start;
+  height: max-content;
+}
+
+._edit_btn {
+  border: none;
+  background-color: var(--gray-100);
+  padding: 5px;
+  border-radius: 20px;
+  font-size: var(--fs-xs);
+  font-family: var(--font-prmary);
+  cursor: pointer;
+  transition: background-color .2s;
+}
+
+._edit_btn:hover {
+  background-color: var(--white)
+}
+
+._full_height {
+  align-self: center;
+}
+
+
+._text {
+  max-width: 500px;
+  margin-inline: auto;
+  margin-top: -10px;
+}
+
+._full_height p {
+  text-align: center;
+  font-size: clamp(var(--fs-xl), var(--fs-md), var(--fs-xl));
+}
+
+._card_header ._card_status span {
+  font-size: var(--fs-xs);
+}
+
+._nav_btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-200);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
