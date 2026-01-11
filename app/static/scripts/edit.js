@@ -1,28 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='styles/base.css')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='styles/edit.css')}}"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <title>Flashcard - Edit</title>
-  </head>
-  <body>
-    <div class="_main">
+const cards = {
+  id: 1,
+  title: 'Mathematics',
+  color: 'green',
+  data: [
+    {
+      id: 1,
+      question: `If x is 2 and the sum of x and y is 6 then what is y?`,
+      answer: '4',
+    },
+    {
+      id: 2,
+      question: 'What s 3 + 2',
+      answer: '5',
+    }
+  ]
+}
+
+function render_card() {
+  document.title += ` | ${cards.title}`;
+
+  let html = `
+           
       <div class="_card_section">
         <div class="_card_section_header">
           <div class="_card_title">
-            <input type="text" class="_title_input" value="Mathematics" />
+            <input type="text" class="_title_input" value="${cards.title}" />
             <span class="_changed"></span>
           </div>
           <div class="_card_more">
@@ -74,7 +76,7 @@
               </div>
               <div class="_full_height">
                 <div class="_text">
-                  <p class="_card_text">What is the haemogoblin?</p>
+                  <p class="_card_text" tabindex="-1">${cards.data[0].question}</p>
                 </div>
               </div>
             </div>
@@ -83,9 +85,58 @@
             <i class="ri-arrow-right-long-line" tabindex="0"></i>
           </div>
         </div>
-      </div>
-    </div>
+      </div>`;
 
-    <script src="{{url_for('static', filename='scripts/edit.js')}}"></script>
-  </body>
-</html>
+  document.querySelector('._main').innerHTML = html;
+
+
+  const more_btn = document.querySelector('._more');
+  const card_funcs = document.querySelector('._card_funcs');
+
+  more_btn.addEventListener('click', () => {
+    card_funcs.focus();
+  })
+
+  more_btn.addEventListener('focus', () => {
+    card_funcs.focus();
+  })
+
+  card_funcs.addEventListener('focus', () => {
+    card_funcs.classList.remove('_scale_0');
+    console.log("blue")
+  })
+
+
+  card_funcs.addEventListener('focusout', (e) => {
+    if (e.relatedTarget === null) {
+
+      if (!card_funcs.classList.contains('_scale_0')) {
+        card_funcs.classList.add('_scale_0');
+      }
+    }
+  });
+
+  const ul = card_funcs.children[0];
+  ul.addEventListener('focusout', (e) => {
+    const contains_el = ul.contains(e.relatedTarget)
+
+    if (!contains_el) {
+
+      if (!card_funcs.classList.contains('_hidden')) {
+        card_funcs.classList.add('_scale_0');
+      }
+    }
+  });
+
+  const edit_button = document.querySelector('._edit_btn');
+  const card_text = document.querySelector('._card_text');
+
+  edit_button.addEventListener('click', (e) => {
+    card_text.contentEditable = 'true';
+    card_text.focus();
+  });
+
+
+}
+
+render_card();

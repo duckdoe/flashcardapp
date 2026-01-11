@@ -5,7 +5,8 @@ ul {
 ._main {
   max-width: 1200px;
   height: 100vh;
-  margin-inline: 10px;
+  margin: 0 auto;
+  padding: 10px;
   display: grid;
   place-content: center;
 }
@@ -42,6 +43,12 @@ ul {
   border-radius: 4px;
   box-shadow: 0px 0px 8px rgb(0, 0, 0, .15);
   background-color: var(--white);
+  transition: .1s;
+}
+
+._card_funcs:focus {
+  border: none;
+  outline: none;
 }
 
 ._card_funcs ul {
@@ -50,11 +57,24 @@ ul {
   gap: 4px;
 }
 
+._card_text {
+  max-height: 150px;
+  overflow-y: scroll;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
 ._card_funcs ul li {
   padding: 4px;
   cursor: pointer;
   border-radius: 4px;
   transition: .2s;
+}
+
+._card_funcs ul li button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 ._card_funcs ul li:hover {
@@ -116,9 +136,9 @@ ul {
   margin-top: -10px;
 }
 
-._full_height p {
+._card_text {
   text-align: center;
-  font-size: clamp(var(--fs-xl), var(--fs-md), var(--fs-xl));
+  font-size: clamp(.75rem, 1rem, 1.2rem);
 }
 
 ._card_header ._card_status span {
@@ -134,6 +154,28 @@ ul {
   background-color: var(--gray-200);
   border-radius: 50%;
   cursor: pointer;
+}
+
+._more {
+  padding: 8px;
+  transition: .4s;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+._more:hover {
+  background-color: var(--gray-100);
+}
+
+._scale_0 {
+  scale: 0;
+}
+
+._full_width {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  gap: 4px;
 }
 
 ::-webkit-scrollbar {
