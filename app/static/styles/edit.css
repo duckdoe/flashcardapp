@@ -178,6 +178,12 @@ ul {
   gap: 4px;
 }
 
+._card_text:focus {
+  border: none;
+  outline: none;
+  text-decoration: underline;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
