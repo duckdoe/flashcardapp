@@ -21,36 +21,36 @@ function render_card() {
 
   let html = `
            
-      <div class="_card_section">
-        <div class="_card_section_header">
-          <div class="_card_title">
-            <input type="text" class="_title_input" value="${cards.title}" />
-            <span class="_changed"></span>
+      <div class="card_section">
+        <div class="card_section_header">
+          <div class="card_title">
+            <input type="text" class="title_input" value="${cards.title}" />
+            <span class="changed"></span>
           </div>
-          <div class="_card_more">
-            <i class="ri-more-line _more" tabindex="0"></i>
-            <div class="_card_funcs _scale_0" tabindex="-1">
+          <div class="card_more">
+            <i class="ri-more-line more" tabindex="0"></i>
+            <div class="card_funcs scale_0" tabindex="-1">
               <ul>
-                <li class="_add_func">
-                  <button class="_full_width">
+                <li class="add_func">
+                  <button class="full_width">
                     <i class="ri-add-box-line"></i>
                     Add Card
                   </button>
                 </li>
-                <li class="_save_func">
-                  <button class="_full_width">
+                <li class="save_func">
+                  <button class="full_width">
                     <i class="ri-save-line"></i>
                     Save Changes
                   </button>
                 </li>
-                <li class="_chage_func">
-                  <button class="_full_width">
+                <li class="chage_func">
+                  <button class="full_width">
                     <i class="ri-color-filter-line"></i>
                     Change Color
                   </button>
                 </li>
                 <li class="color_func">
-                  <button class="_full_width">
+                  <button class="full_width">
                     <i class="ri-delete-bin-line"></i>
                     Delete Flascard
                   </button>
@@ -59,39 +59,39 @@ function render_card() {
             </div>
           </div>
         </div>
-        <div class="_card_container">
-          <div class="_nav_btn">
+        <div class="card_container">
+          <div class="nav_btn">
             <i class="ri-arrow-left-long-line" tabindex="0"></i>
           </div>
-          <div class="_cards">
-            <div class="_card">
-              <div class="_card_header">
-                <div class="_card_status">
+          <div class="cards">
+            <div class="card">
+              <div class="card_header">
+                <div class="card_status">
                   <span>Question</span>
                 </div>
-                <button class="_edit_btn">
+                <button class="edit_btn">
                   <i class="ri-edit-2-line"></i>
                   Edit Text
                 </button>
               </div>
-              <div class="_full_height">
-                <div class="_text">
-                  <p class="_card_text" tabindex="-1">${cards.data[0].question}</p>
+              <div class="full_height">
+                <div class="text">
+                  <p class="card_text" tabindex="-1">${cards.data[0].question}</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="_nav_btn">
+          <div class="nav_btn">
             <i class="ri-arrow-right-long-line" tabindex="0"></i>
           </div>
         </div>
       </div>`;
 
-  document.querySelector('._main').innerHTML = html;
+  document.querySelector('.main').innerHTML = html;
 
 
-  const more_btn = document.querySelector('._more');
-  const card_funcs = document.querySelector('._card_funcs');
+  const more_btn = document.querySelector('.more');
+  const card_funcs = document.querySelector('.card_funcs');
 
   more_btn.addEventListener('click', () => {
     card_funcs.focus();
@@ -102,7 +102,7 @@ function render_card() {
   })
 
   card_funcs.addEventListener('focus', () => {
-    card_funcs.classList.remove('_scale_0');
+    card_funcs.classList.remove('scale_0');
     console.log("blue")
   })
 
@@ -110,8 +110,8 @@ function render_card() {
   card_funcs.addEventListener('focusout', (e) => {
     if (e.relatedTarget === null) {
 
-      if (!card_funcs.classList.contains('_scale_0')) {
-        card_funcs.classList.add('_scale_0');
+      if (!card_funcs.classList.contains('scale_0')) {
+        card_funcs.classList.add('scale_0');
       }
     }
   });
@@ -122,14 +122,14 @@ function render_card() {
 
     if (!contains_el) {
 
-      if (!card_funcs.classList.contains('_hidden')) {
-        card_funcs.classList.add('_scale_0');
+      if (!card_funcs.classList.contains('hidden')) {
+        card_funcs.classList.add('scale_0');
       }
     }
   });
 
-  const edit_button = document.querySelector('._edit_btn');
-  const card_text = document.querySelector('._card_text');
+  const edit_button = document.querySelector('.edit_btn');
+  const card_text = document.querySelector('.card_text');
 
   edit_button.addEventListener('click', (e) => {
     card_text.contentEditable = 'true';

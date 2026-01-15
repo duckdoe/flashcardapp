@@ -2,7 +2,7 @@ ul {
   list-style-type: none;
 }
 
-._main {
+.main {
   max-width: 1200px;
   height: 100vh;
   margin: 0 auto;
@@ -11,11 +11,11 @@ ul {
   place-content: center;
 }
 
-._card_section {
+.card_section {
   width: 595px;
 }
 
-._card_section_header {
+.card_section_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,7 +23,7 @@ ul {
   margin-inline: auto;
 }
 
-._title_input {
+.title_input {
   border: none;
   border-bottom: 1px solid;
   border-bottom-color: var(--gray-900);
@@ -33,11 +33,11 @@ ul {
   padding: 4px;
 }
 
-._title_input:focus {
+.title_input:focus {
   outline: none;
 }
 
-._card_funcs {
+.card_funcs {
   position: absolute;
   padding: 4px;
   border-radius: 4px;
@@ -46,54 +46,54 @@ ul {
   transition: .1s;
 }
 
-._card_funcs:focus {
+.card_funcs:focus {
   border: none;
   outline: none;
 }
 
-._card_funcs ul {
+.card_funcs ul {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-._card_text {
+.card_text {
   max-height: 150px;
   overflow-y: scroll;
   max-width: 420px;
   margin: 0 auto;
 }
 
-._card_funcs ul li {
+.card_funcs ul li {
   padding: 4px;
   cursor: pointer;
   border-radius: 4px;
   transition: .2s;
 }
 
-._card_funcs ul li button {
+.card_funcs ul li button {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-._card_funcs ul li:hover {
+.card_funcs ul li:hover {
   background-color: var(--gray-200);
 }
 
-._card_container {
+.card_container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-._cards {
+.cards {
   overflow: scroll;
   width: 500px;
   padding: 10px;
 }
 
-._card {
+.card {
   background-color: var(--green-primary);
   padding: 10px;
   border-radius: 4px;
@@ -102,7 +102,7 @@ ul {
   grid-template-rows: 20px 210px;
 }
 
-._card_header {
+.card_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -110,7 +110,7 @@ ul {
   height: max-content;
 }
 
-._edit_btn {
+.edit_btn {
   border: none;
   background-color: var(--gray-100);
   padding: 5px;
@@ -121,31 +121,31 @@ ul {
   transition: background-color .2s;
 }
 
-._edit_btn:hover {
+.edit_btn:hover {
   background-color: var(--white)
 }
 
-._full_height {
+.full_height {
   align-self: center;
 }
 
 
-._text {
+.text {
   max-width: 500px;
   margin-inline: auto;
   margin-top: -10px;
 }
 
-._card_text {
+.card_text {
   text-align: center;
   font-size: clamp(.75rem, 1rem, 1.2rem);
 }
 
-._card_header ._card_status span {
+.card_header .card_status span {
   font-size: var(--fs-xs);
 }
 
-._nav_btn {
+.nav_btn {
   width: 30px;
   height: 30px;
   display: flex;
@@ -156,29 +156,29 @@ ul {
   cursor: pointer;
 }
 
-._more {
+.more {
   padding: 8px;
   transition: .4s;
   cursor: pointer;
   border-radius: 50%;
 }
 
-._more:hover {
+.more:hover {
   background-color: var(--gray-100);
 }
 
-._scale_0 {
+.scale_0 {
   scale: 0;
 }
 
-._full_width {
+.full_width {
   width: 100%;
   display: flex;
   align-items: start;
   gap: 4px;
 }
 
-._card_text:focus {
+.card_text:focus {
   border: none;
   outline: none;
   text-decoration: underline;
