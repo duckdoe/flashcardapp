@@ -26,6 +26,10 @@
             <span class="changed"></span>
           </div>
           <div class="card_more">
+            <button class="save_changes" disabled="true">
+              <i class="ri-save-line"></i>
+              Save
+            </button>
             <i class="ri-more-line more" tabindex="0"></i>
             <div class="card_funcs scale_0" tabindex="-1">
               <ul>
@@ -41,11 +45,49 @@
                     Save Changes
                   </button>
                 </li>
-                <li class="chage_func">
+                <li class="chage_func" style="position: relative">
                   <button class="full_width">
                     <i class="ri-color-filter-line"></i>
                     Change Color
                   </button>
+                  <div class="color_picker">
+                    <div
+                      class="color_option color-green"
+                      data-color="color-green"
+                    ></div>
+                    <div
+                      class="color_option color-blue"
+                      data-color="color-blue"
+                    ></div>
+                    <div
+                      class="color_option color-purple"
+                      data-color="color-purple"
+                    ></div>
+                    <div
+                      class="color_option color-pink"
+                      data-color="color-pink"
+                    ></div>
+                    <div
+                      class="color_option color-red"
+                      data-color="color-red"
+                    ></div>
+                    <div
+                      class="color_option color-yellow"
+                      data-color="color-yellow"
+                    ></div>
+                    <div
+                      class="color_option color-teal"
+                      data-color="color-teal"
+                    ></div>
+                    <div
+                      class="color_option color-brown"
+                      data-color="color-brown"
+                    ></div>
+                    <div
+                      class="color_option color-gray"
+                      data-color="color-gray"
+                    ></div>
+                  </div>
                 </li>
                 <li class="color_func">
                   <button class="full_width">
@@ -58,19 +100,29 @@
           </div>
         </div>
         <div class="card_container">
-          <div class="nav_btn">
-            <i class="ri-arrow-left-long-line" tabindex="0"></i>
+          <div class="nav_buttons">
+            <div class="nav_btn">
+              <i class="ri-arrow-left-long-line" tabindex="0"></i>
+            </div>
+            <div class="nav_btn">
+              <i class="ri-arrow-right-long-line" tabindex="0"></i>
+            </div>
           </div>
           <div class="cards">
-            <div class="card">
+            <div class="card color-purple">
               <div class="card_header">
                 <div class="card_status">
                   <span>Question</span>
                 </div>
-                <button class="edit_btn">
-                  <i class="ri-edit-2-line"></i>
-                  Edit Text
-                </button>
+                <div class="card_func">
+                  <button class="edit_btn">
+                    <i class="ri-edit-2-line"></i>
+                    Edit Text
+                  </button>
+                  <div class="delete_btn">
+                    <i class="ri-delete-bin-line"></i>
+                  </div>
+                </div>
               </div>
               <div class="full_height">
                 <div class="text">
@@ -79,9 +131,14 @@
               </div>
             </div>
           </div>
-          <div class="nav_btn">
-            <i class="ri-arrow-right-long-line" tabindex="0"></i>
-          </div>
+        </div>
+        <div class="card_counter">
+          <span class="current_card">1</span> /
+          <span class="total_cards">2</span>
+        </div>
+        <div id="card_bars">
+          <div class="bar color-purple"></div>
+          <div class="bar color-purple"></div>
         </div>
       </div>
     </div>

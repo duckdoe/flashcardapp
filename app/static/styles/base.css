@@ -17,11 +17,19 @@
   --black-900: #000000;
   --white: #FFFFFF;
 
-  /* Accent / Brand Colors */
+  /* Colors */
   --blue-primary: #5A72EC;
   --blue-primary-dark: #405be4;
   --green-primary: #3EAD81;
   --orange-accent: #EF5D38;
+  --blue-sapphire: #3F7CAC;
+  --purple-royal: #6D5ACF;
+  --red-crimson: #C73E3A;
+  --yellow-amber: #F2B705;
+  --teal-mist: #4FB3A2;
+  --pink-blush: #E96BA8;
+  --brown-earth: #8B5E3C;
+  --gray-steel: #6B7280;
 
   /* Font Family */
   --font-primary: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -56,4 +64,40 @@
 body {
   font-family: var(--font-primary);
   font-size: var(--fs-sm);
+}
+
+.color-green {
+  background-color: var(--green-primary);
+}
+
+.color-blue {
+  background-color: var(--blue-sapphire);
+}
+
+.color-purple {
+  background-color: var(--purple-royal)
+}
+
+.color-pink {
+  background-color: var(--pink-blush)
+}
+
+.color-red {
+  background-color: var(--red-crimson)
+}
+
+.color-yellow {
+  background-color: var(--yellow-amber)
+}
+
+.color-teal {
+  background-color: var(--teal-mist)
+}
+
+.color-brown {
+  background-color: var(--brown-earth)
+}
+
+.color-gray {
+  background-color: var(--gray-steel);
 }

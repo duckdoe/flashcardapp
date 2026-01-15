@@ -12,25 +12,33 @@ ul {
 }
 
 .card_section {
-  width: 595px;
+  max-width: 595px;
 }
 
 .card_section_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.card_counter {
+  font-size: var(--fs-sm);
+  color: var(--gray-600);
+  font-weight: var(--fw-semibold);
+  text-align: right;
+  margin-bottom: 10px;
   width: 480px;
   margin-inline: auto;
 }
 
 .title_input {
   border: none;
-  border-bottom: 1px solid;
-  border-bottom-color: var(--gray-900);
-  field-sizing: content;
+  width: max-content;
   display: block;
   max-width: 120px;
-  padding: 4px;
+  text-decoration: underline;
 }
 
 .title_input:focus {
@@ -44,6 +52,7 @@ ul {
   box-shadow: 0px 0px 8px rgb(0, 0, 0, .15);
   background-color: var(--white);
   transition: .1s;
+  z-index: 99;
 }
 
 .card_funcs:focus {
@@ -62,6 +71,18 @@ ul {
   overflow-y: scroll;
   max-width: 420px;
   margin: 0 auto;
+  text-align: center;
+  font-size: clamp(.75rem, 1rem, 1.2rem);
+}
+
+.card_text[contenteditable="true"] {
+  text-decoration: underline;
+  outline: none;
+}
+
+.card_text:focus {
+  border: none;
+  outline: none;
 }
 
 .card_funcs ul li {
@@ -84,22 +105,52 @@ ul {
 .card_container {
   display: flex;
   align-items: center;
+  position: relative;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.nav_buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: absolute;
+  left: -5px;
+  right: -50px;
   justify-content: space-between;
+  max-width: 600px;
+  pointer-events: none;
+}
+
+.nav_btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-200);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  pointer-events: all;
 }
 
 .cards {
-  overflow: scroll;
+  overflow: hidden;
   width: 500px;
   padding: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .card {
-  background-color: var(--green-primary);
   padding: 10px;
   border-radius: 4px;
   height: 250px;
   display: grid;
   grid-template-rows: 20px 210px;
+  min-width: 480px;
+  transition: background-color 0.4s ease;
 }
 
 .card_header {
@@ -141,6 +192,16 @@ ul {
   font-size: clamp(.75rem, 1rem, 1.2rem);
 }
 
+.card_text[contenteditable="true"] {
+  text-decoration: underline;
+  outline: none;
+}
+
+.card_text:focus {
+  border: none;
+  outline: none;
+}
+
 .card_header .card_status span {
   font-size: var(--fs-xs);
 }
@@ -154,6 +215,16 @@ ul {
   background-color: var(--gray-200);
   border-radius: 50%;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav_btn:hover {
+  background-color: var(--gray-300);
+}
+
+.nav_btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .more {
@@ -178,12 +249,208 @@ ul {
   gap: 4px;
 }
 
-.card_text:focus {
-  border: none;
-  outline: none;
-  text-decoration: underline;
-}
-
 ::-webkit-scrollbar {
   display: none;
+}
+
+.delete_btn {
+  display: inline-block;
+  padding-block: 4px;
+  padding-inline: 6px;
+  margin-left: 5px;
+  background-color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.save_changes {
+  padding: 5px;
+  padding-right: 10px;
+  border-radius: 4px;
+  border: none;
+  font-family: var(--font-prmary);
+  cursor: pointer;
+  background-color: var(--blue-primary);
+  color: var(--gray-300);
+}
+
+.save_changes:disabled {
+  background-color: var(--gray-700);
+  cursor: not-allowed;
+}
+
+.save_changes i {
+  margin-right: 5px;
+}
+
+#card_bars {
+  display: grid;
+  max-width: 480px;
+  margin: 20px auto;
+  grid-template-columns: repeat(auto-fit, minmax(5%, 1fr));
+  gap: 5px;
+}
+
+.bar {
+  height: 5px;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+  opacity: 0.3;
+}
+
+@keyframes slide_in_left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide_in_right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.card.slide_left {
+  animation: slide_in_left 0.4s ease-out;
+}
+
+.card.slide_right {
+  animation: slide_in_right 0.4s ease-out;
+}
+
+.card_status {
+  position: relative;
+}
+
+.card_status span {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  transition: .3s;
+}
+
+.card[data-is-answer="false"] .card_status span {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: var(--white);
+}
+
+.card[data-is-answer="true"] .card_status span {
+  background-color: var(--white);
+  color: var(--blue-primary);
+  box-shadow: 0px 4px 12px rgba(90, 114, 236, 0.3);
+  transform: scale(1.05);
+}
+
+.color_picker {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--white);
+  border-radius: 4px;
+  padding: 8px;
+  box-shadow: 0px 2px 8px rgb(0, 0, 0, .15);
+  z-index: 10;
+  display: none;
+  grid-template-columns: repeat(4, 30px);
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.color_picker.active {
+  display: grid;
+}
+
+.color_option {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: .2s;
+}
+
+.color_option:hover {
+  border-color: var(--gray-900);
+  transform: scale(1.1);
+}
+
+@media (max-width: 650px) {
+  .card_container {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    position: static;
+  }
+
+  .nav_buttons {
+    order: 3;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    left: auto;
+    right: auto;
+    max-width: 100%;
+  }
+
+  .cards {
+    width: 360px;
+    max-width: 360px;
+    overflow: hidden;
+    order: 2;
+    padding: 5px;
+  }
+
+  .card {
+    min-width: 360px;
+    height: 200px;
+    grid-template-rows: 18px 172px;
+    padding: 8px;
+  }
+
+  .card_text {
+    font-size: clamp(0.6rem, 2vw, 0.95rem);
+  }
+
+  .edit_btn {
+    padding: 3px;
+    font-size: var(--fs-xs);
+  }
+
+  .delete_btn {
+    padding-block: 2px;
+    padding-inline: 3px;
+    margin-left: 2px;
+  }
+
+  .nav_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    pointer-events: all;
+  }
+
+  .text {
+    margin-inline: 0;
+    margin-top: -5px;
+  }
 }
